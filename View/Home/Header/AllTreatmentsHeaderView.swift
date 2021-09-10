@@ -10,19 +10,20 @@ import SwiftUI
 struct AllTreatmentsHeaderView: View {
     
     var headerView: some View {
-        HStack() {
+        HStack {
             Text("your medications:")
                 .font(Font.custom("Besley", size: 18))
                 .fontWeight(.light)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
+                .padding()
+            
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                 Text("Add more")
                     .font(Font.custom("Besley", size: 18))
                     .fontWeight(.semibold)
-                    .foregroundColor(MyColor.thistle)
-                    .padding(.leading, 10)
-                    
+                    .foregroundColor(MyColor.dodgerblue)
+                    .padding()
             })
         }
     }

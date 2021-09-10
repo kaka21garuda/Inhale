@@ -9,35 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
+
     var body: some View {
-        
+    
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [MyColor.midnightBlue]), startPoint: .topTrailing, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
+            MyColor.offWhite
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
+            ScrollView(.vertical, showsIndicators: false, content: {
                 VStack {
                     HomeHeaderView() // good morning and light bulb
-                        .padding(.bottom, 2)
-                    
                     AllTreatmentsHeaderView()
-                    HomeCardView()
-                    TodaysListView()
-                    Spacer()
-                    
-                    
                         
-                    
-                }.padding()
+                    HomeCardView()
+                    Spacer()
+       
+                }
+                
+                
+                
             })
-            
         }
         
         
     }
     
-
 }
 
 struct ContentView_Previews: PreviewProvider {

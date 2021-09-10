@@ -11,19 +11,22 @@ struct HomeHeaderView: View {
 
     
     var body: some View {
-        HStack() {
+        HStack {
             VStack(alignment: .leading) {
                 Text("Good Morning,")
                     .font(Font.custom("Besley", size: 28))
                     .fontWeight(.ultraLight)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
+                    .padding()
             }
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                 Image(systemName: "flame")
                     .font(.largeTitle)
-                    .gradientForeground(colors: [Color.yellow])
+                    .foregroundColor(.orange)
                     .padding()
+                    
+                    
  
             })
             

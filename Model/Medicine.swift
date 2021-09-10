@@ -13,6 +13,7 @@ enum TreatmentType {
     case allergy
     case inhaler
     case prescription
+    
     case others
 }
 

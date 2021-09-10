@@ -9,15 +9,16 @@ import SwiftUI
 
 struct HomeCardView: View {
     var body: some View {
+        
         ScrollView(.horizontal, showsIndicators: false) {
             
-            HStack(spacing: 10) {
+            HStack {
                 ForEach(0..<10) {_ in
                     VStack {
                         
                         HStack {
                             Text("Ashwagandha")
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .font(Font.custom("Besley", size: 18))
                                 
                                 .padding(.top, 12)
@@ -27,12 +28,10 @@ struct HomeCardView: View {
                             
                     
                         }
-                        
-                        
                         HStack {
     
                             Text("multivitamin")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(MyColor.maroon)
                                 .font(Font.custom("Besley", size: 16))
                                 .padding(.top, 1)
                                 .padding(.bottom, 1)
@@ -40,7 +39,7 @@ struct HomeCardView: View {
                                 .padding(.trailing, 12)
                                 .overlay (
                                     Capsule(style: .circular)
-                                        .stroke(Color.yellow, lineWidth: 1)
+                                        .stroke(MyColor.maroon, lineWidth: 1)
                                         
                             )
                                 .padding(.leading, 7)
@@ -50,27 +49,25 @@ struct HomeCardView: View {
                                 
                             Spacer()
                         }
-                        
                         .padding(.bottom, 0)
-                        
-                       
+             
                         HStack {
                             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                Image(systemName: "ellipsis")
-                                .foregroundColor(MyColor.thistle)
+                                .foregroundColor(MyColor.maroon)
                                 .font(.largeTitle)
                             })
                             .padding(.leading, 12)
                             Spacer()
                             Text("3x")
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .font(Font.custom("Besley", size: 16))
                                 .padding()
                                 .padding()
                     
                                 .overlay(
                                     Circle()
-                                        .stroke(MyColor.thistle, lineWidth: 1.3)
+                                        .stroke(MyColor.maroon, lineWidth: 1.3)
                                         .frame(width: 35, height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         
                                         
@@ -78,20 +75,18 @@ struct HomeCardView: View {
                             
                         }
                         .padding(.top, 15)
-                        
-                       
-                        
                     }
                     .frame(width: 280, height: 200)
-                    .background(MyColor.darkslateBlue)
+                    .background(MyColor.offWhite)
                     .cornerRadius(10)
-                    
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+                    .shadow(color: MyColor.offWhite.opacity(0.7), radius: 10, x: -5, y: -5)
+                    .padding()
                     
                 }
-            }
-
-        }
-        .ignoresSafeArea()
+            }.padding(.bottom, 10)
+            
+        }.edgesIgnoringSafeArea(.horizontal)
     }
 }
 
