@@ -8,30 +8,35 @@
 import SwiftUI
 
 struct HomeHeaderView: View {
-    
-    
+
     
     var body: some View {
         HStack() {
             VStack(alignment: .leading) {
                 Text("Good Morning,")
-                    .font(.callout)
-                    .foregroundColor(.white)
-                Text("Liam Gallagher")
-                    .font(.title)
-                    .fontWeight(.semibold)
+                    .font(Font.custom("Besley", size: 28))
+                    .fontWeight(.ultraLight)
                     .foregroundColor(.white)
             }
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image(systemName: "sun.min.fill")
+                Image(systemName: "flame")
                     .font(.largeTitle)
-                    .foregroundColor(Color(red: 171 / 255, green: 115 / 255, blue: 255 / 255))
-                
+                    .gradientForeground(colors: [Color.yellow])
+                    .padding()
+ 
             })
             
         
         }
+    }
+}
+
+extension View {
+    public func gradientForeground(colors: [Color]) -> some View {
+        
+        self.overlay(LinearGradient(gradient: .init(colors: colors), startPoint: .topLeading, endPoint: .bottomLeading))
+            .mask(self)
     }
 }
 
