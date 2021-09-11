@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeHeaderView: View {
-
+    
     
     var body: some View {
         HStack {
@@ -22,16 +22,41 @@ struct HomeHeaderView: View {
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                 Image(systemName: "flame")
-                    .font(.largeTitle)
-                    .foregroundColor(.orange)
-                    .padding()
-                    
-                    
- 
-            })
-            
-        
+                    .foregroundColor(MyColor.maroon)
+            }).buttonStyle(FireButtonStyle())
         }
+    }
+}
+
+struct FireButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .contentShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+            .background(
+                Group {
+                    if configuration.isPressed {
+                        Circle()
+                            .fill(MyColor.offWhite)
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: -5, y: -5)
+                            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -10, y: -10)
+                    } else {
+                        Circle()
+                            .fill(MyColor.offWhite)
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+                            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                    }
+                    
+                    
+                    
+                }
+            ).padding()
+    }
+}
+
+extension LinearGradient {
+    init(_ colors: Color...) {
+        self.init(gradient: Gradient(colors: colors), startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 }
 

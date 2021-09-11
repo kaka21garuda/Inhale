@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeCardView: View {
     var body: some View {
-        
         ScrollView(.horizontal, showsIndicators: false) {
             
             HStack {
@@ -84,7 +83,7 @@ struct HomeCardView: View {
                     .padding()
                     
                 }
-            }.padding(.bottom, 10)
+            }.padding(.bottom, 30)
             
         }.edgesIgnoringSafeArea(.horizontal)
     }
