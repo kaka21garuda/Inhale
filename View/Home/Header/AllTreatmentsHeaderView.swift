@@ -15,7 +15,8 @@ struct AllTreatmentsHeaderView: View {
                 .font(Font.custom("Besley", size: 18))
                 .fontWeight(.light)
                 .foregroundColor(.black)
-                .padding()
+                .padding(.leading, 20)
+                
             
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
@@ -23,9 +24,11 @@ struct AllTreatmentsHeaderView: View {
                     .font(Font.custom("Besley", size: 18))
                     .fontWeight(.semibold)
                     .foregroundColor(MyColor.dodgerblue)
-                    .padding()
+                    .padding(.trailing, 20)
+                    
             })
-        }
+        }.padding(.top, 20)
+        
     }
     
     

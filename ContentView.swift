@@ -22,6 +22,8 @@ struct ContentView: View {
                     AllTreatmentsHeaderView()
                         
                     HomeCardView()
+                    TodaysListHeaderView()
+                    TodaysListView()
                     Spacer()
        
                 }

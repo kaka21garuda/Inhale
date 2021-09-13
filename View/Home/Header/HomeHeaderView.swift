@@ -13,7 +13,7 @@ struct HomeHeaderView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Good Morning,")
+                Text("Hello there,")
                     .font(Font.custom("Besley", size: 28))
                     .fontWeight(.ultraLight)
                     .foregroundColor(.black)
