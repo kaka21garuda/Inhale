@@ -26,28 +26,31 @@ struct TodaysListView: View {
                         Spacer()
                             HStack(alignment: .firstTextBaseline) {
                                 Text("morning")
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(MyColor.maroon)
                                     .font(Font.custom("Besley", size: 14))
-                                    
-                                    
+                                    .padding(.top, 1)
+                                    .padding(.bottom, 1)
                                     .padding(.leading, 12)
                                     .padding(.trailing, 12)
-                                    .background(Capsule(style: .circular)
-                                                    .fill(Color.orange)
-                                                    
+                                    .overlay (
+                                        Capsule(style: .circular)
+                                            .stroke(MyColor.maroon, lineWidth: 1)
+                                            
                                     ).padding()
+                                   
                 
                             }
                                 
             
                     }
                 }
-                .frame(width: UIScreen.screenWidth - 50, height: 80)
+                .frame(width: UIScreen.screenWidth - 50, height: 70)
                 .background(MyColor.offWhite)
                 .cornerRadius(10)
                 .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
                 .shadow(color: MyColor.offWhite.opacity(0.7), radius: 10, x: -5, y: -5)
-                .padding(.bottom, 12)
+                
+                .padding(.bottom, 10)
             }
         }
         

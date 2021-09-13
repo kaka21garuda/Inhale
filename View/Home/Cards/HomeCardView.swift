@@ -53,12 +53,7 @@ struct HomeCardView: View {
                             .padding(.bottom, 0)
                  
                             HStack {
-                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                                   Image(systemName: "ellipsis")
-                                    .foregroundColor(MyColor.maroon)
-                                    .font(.largeTitle)
-                                })
-                                .padding(.leading, 12)
+                                
                                 Spacer()
                                 Text("3x")
                                     .foregroundColor(.black)

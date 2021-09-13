@@ -16,7 +16,7 @@ struct TodaysListHeaderView: View {
                 .fontWeight(.semibold)
                 .fontWeight(.light)
                 .foregroundColor(.black)
-                .padding()
+                .padding(.leading, 20)
                 
             
             Spacer()

@@ -13,7 +13,7 @@ struct AllTreatmentsHeaderView: View {
         HStack {
             Text("your medications:")
                 .font(Font.custom("Besley", size: 18))
-                .fontWeight(.light)
+                .fontWeight(.semibold)
                 .foregroundColor(.black)
                 .padding(.leading, 20)
                 
@@ -27,7 +27,7 @@ struct AllTreatmentsHeaderView: View {
                     .padding(.trailing, 20)
                     
             })
-        }.padding(.top, 20)
+        }.padding(.top, 30)
         
     }
     
