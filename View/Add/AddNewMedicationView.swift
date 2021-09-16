@@ -127,7 +127,7 @@ struct AddNewMedicationView: View {
                 
                 
             }
-            .background(MyColor.offWhite)
+            .background(MyColor.lavender)
             .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             .navigationBarHidden(true)
             
