@@ -8,49 +8,108 @@
 import SwiftUI
 
 struct TodaysListView: View {
+    
+    @State private var drawCheckRing = 1/99 // draw the progress ring
+    @State private var showCheckCircle = 1/99 // show central circle
+    @State private var showCheckMark = -60 // show check mark masking
+    
+    
     var body: some View {
         
         VStack {
             HStack{Spacer()}
             ForEach(0..<10) {_ in
                 VStack{
-                    HStack {
-                        
-                            HStack {
+                   
+                    VStack {
+                        HStack {
+                            
                                 Text("Ashwagandha")
                                     .foregroundColor(.black)
                                     .font(Font.custom("Besley", size: 14))
-                                    .padding()
-                                
-                            }
-                        Spacer()
-                            HStack(alignment: .firstTextBaseline) {
-                                Text("morning")
-                                    .foregroundColor(MyColor.maroon)
-                                    .font(Font.custom("Besley", size: 14))
-                                    .padding(.top, 1)
-                                    .padding(.bottom, 1)
+                                    
                                     .padding(.leading, 12)
-                                    .padding(.trailing, 12)
-                                    .overlay (
-                                        Capsule(style: .circular)
-                                            .stroke(MyColor.maroon, lineWidth: 1)
-                                            
-                                    ).padding()
-                                   
-                
+                                    .padding(.top, 12)
+                            
+                            Spacer()
+                           
+                            VStack {
+                                
+                                ZStack {
+                                    Circle() // Inactive circle
+                                       
+                                        .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                                        .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .padding(.top, 24)
+                                        .padding(.trailing, 12)
+                                        .foregroundColor(Color.black)
+                                        
+                                    
+                                    
+                                    Circle() // Active circle
+                                        .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(drawCheckRing))
+                                        .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                                        .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .rotationEffect(.degrees(-90))
+                                        .foregroundColor(MyColor.maroon)
+                                        .scaleEffect(CGFloat(showCheckCircle))
+                                        .animation(Animation.easeInOut(duration: 1).delay(1))
+                                        .padding(.top, 24)
+                                        .padding(.trailing, 12)
+                                        
+                                    
+                                    
+                                    Image(systemName: "checkmark") // Checkmark
+                                        .font(.subheadline)
+                                        .clipShape(Rectangle().offset(x: CGFloat(showCheckMark)))
+                                        .animation(Animation.interpolatingSpring(stiffness: 170, damping: 15).delay(2.5))
+                                        .padding(.top, 24)
+                                        .padding(.trailing, 12)
+                                    
+                                }
+                                
+                                
+                                .onTapGesture {
+                                    drawCheckRing = 1
+                                    showCheckCircle = 1
+                                    showCheckMark = 0
+                                }
+                                
+                                
+                                
                             }
                                 
-            
+                                
+                          
+                            
+                            
+                        }
+                        HStack {
+                            Text("afternoon")
+                                .foregroundColor(MyColor.gainsboro)
+                                .font(Font.custom("Besley", size: 14))
+                                .padding(.top, 1)
+                                .padding(.bottom, 1)
+                                .padding(.leading, 12)
+                                .padding(.trailing, 12)
+                                .background(MyColor.maroon)
+                                .clipShape(
+                                    Capsule()
+                                )
+                                .padding(.leading, 12)
+                                .padding(.bottom, 30)
+                            Spacer()
+                        }
+                        
                     }
                 }
-                .frame(width: UIScreen.screenWidth - 50, height: 70)
-                .background(MyColor.offWhite)
+                .frame(width: UIScreen.screenWidth - 50, height: 90)
+                .background(MyColor.lavender)
                 .cornerRadius(10)
-                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                .shadow(color: MyColor.offWhite.opacity(0.7), radius: 10, x: -5, y: -5)
+                
                 
                 .padding(.bottom, 10)
+                Divider()
             }
         }
         

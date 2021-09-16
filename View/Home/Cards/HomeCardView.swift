@@ -73,10 +73,10 @@ struct HomeCardView: View {
                             .padding(.top, 15)
                         }
                         .frame(width: UIScreen.screenWidth - 110, height: 200)
-                        .background(MyColor.offWhite)
+                        .background(MyColor.lavender)
                         .cornerRadius(10)
                         .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                        .shadow(color: MyColor.offWhite.opacity(0.7), radius: 10, x: -5, y: -5)
+                        .shadow(color: MyColor.lavender.opacity(0.7), radius: 10, x: -5, y: -5)
                         .padding([.leading, .trailing], 12)
                         .padding(.top, 17)
                     }

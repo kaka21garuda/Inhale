@@ -23,7 +23,7 @@ struct AllTreatmentsHeaderView: View {
                 Text("Add more")
                     .font(Font.custom("Besley", size: 18))
                     .fontWeight(.semibold)
-                    .foregroundColor(MyColor.dodgerblue)
+                    .foregroundColor(MyColor.maroon)
                     .padding(.trailing, 20)
                     
             })

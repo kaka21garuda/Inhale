@@ -29,4 +29,7 @@ struct MyColor {
     static let thistle = Color(red: 225 / 255, green: 188 / 255, blue: 221 / 255)
     static let maroon = Color(red: 99 / 255, green: 49 / 255, blue: 129 / 255)
     static let offWhite = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
+    
+    static let gainsboro = Color(red: 215 / 255, green: 226 / 255, blue: 236 / 255)
+    static let lavender = Color(red: 229 / 255, green: 240 / 255, blue: 251 / 255)
 }

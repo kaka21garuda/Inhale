@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
     
         ZStack {
-            MyColor.offWhite
+            MyColor.lavender
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             ScrollView(.vertical, showsIndicators: false, content: {
