@@ -2,8 +2,14 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="MedicationEntity" representedClassName="MedicationEntity" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="remarks" optional="YES" attributeType="String"/>
+        <attribute name="shouldNotifyAfternoon" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="shouldNotifyEvening" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="shouldNotifyMorning" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="shouldNotifyNight" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="MedicationEntity" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="MedicationEntity" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

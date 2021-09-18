@@ -11,7 +11,7 @@ import SwiftUI
 struct InhaleApp: App {
     var body: some Scene {
         WindowGroup {
-            CoreDataTestView()
+            ContentView()
         }
     }
 }

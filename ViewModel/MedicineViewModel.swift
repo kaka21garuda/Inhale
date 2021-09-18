@@ -35,9 +35,22 @@ class MedicineViewModel: ObservableObject {
         
     }
     
-    func addMedication(medName: String) {
+    func addMedication(medName: String,
+                       remarks: String,
+                       type: String,
+                       shouldNotifyMorning: Bool,
+                       shouldNotifyAfternoon: Bool,
+                       shouldNotifyEvening: Bool,
+                       shouldNotifyNight: Bool) {
         let newMedication = MedicationEntity(context: container.viewContext)
         newMedication.name = medName
+        newMedication.remarks = remarks
+        newMedication.type = type
+        newMedication.shouldNotifyEvening = shouldNotifyMorning
+        newMedication.shouldNotifyAfternoon = shouldNotifyAfternoon
+        newMedication.shouldNotifyEvening = shouldNotifyEvening
+        newMedication.shouldNotifyNight = shouldNotifyNight
+        
         saveData()
     }
     

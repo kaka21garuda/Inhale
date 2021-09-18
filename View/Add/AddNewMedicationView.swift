@@ -10,6 +10,9 @@ import SwiftUI
 struct AddNewMedicationView: View {
     
     @State private var medicationName: String = ""
+    
+    @ObservedObject var textFieldManager = TextFieldManager()
+    
     @State private var remarks: String = ""
     @State private var selectedMedicationTypeIndex = 0
     @State private var shouldNotifyMorning = false
@@ -29,30 +32,42 @@ struct AddNewMedicationView: View {
             Form {
                 
                 Section(header:
-                            Text("Medication Name:")
-                            .font(Font.custom("Besley", size: 18))
-                            .foregroundColor(Color.black)
-                            .textCase(.none)
-                            
+                            HStack {
+                                Text("Medication Name:")
+                                    .font(Font.custom("Besley", size: 18))
+                                    .foregroundColor(Color.black)
+                                    .textCase(.none)
+                                Image(systemName: "staroflife.fill")
+                                    .foregroundColor(MyColor.maroon)
+                            }
+                        
                 ) {
-                    TextField("", text: $medicationName)
-                        .placeholder(when: medicationName.isEmpty) {
+                    TextField("", text: $textFieldManager.medNameInput)
+                       
+                        .placeholder(when: textFieldManager.medNameInput.isEmpty) {
                             Text("e.g. Paracetamol")
                                 .foregroundColor(.gray)
                                 .font(Font.custom("Besley", size: 16))
-        
+                            
+                            
                         }
                         .font(Font.custom("Besley", size: 16))
-                        
+                    
+                    
                 }
                 
                 Section(header:
-                            Text("Notes:")
-
-                            .font(Font.custom("Besley", size: 18))
-                            .foregroundColor(Color.black)
-                            .textCase(.none)
-                            
+                            HStack {
+                                Text("Remarks:")
+                                
+                                    .font(Font.custom("Besley", size: 18))
+                                    .foregroundColor(Color.black)
+                                    .textCase(.none)
+                                
+                                Image(systemName: "staroflife.fill")
+                                    .foregroundColor(MyColor.maroon)
+                            }
+                        
                 ) {
                     TextEditor(text: $remarks)
                         .placeholder(when: remarks.isEmpty) {
@@ -62,20 +77,24 @@ struct AddNewMedicationView: View {
                                 .padding()
                         }
                         .font(Font.custom("Besley", size: 16))
-                        
+                    
                 }
                 
                 Section(header:
-                        Text("Medication Class:")
-                            .font(Font.custom("Besley", size: 18))
-                            .foregroundColor(Color.black)
-                            .textCase(.none)
+                            HStack {
+                                Text("Medication Class:")
+                                    .font(Font.custom("Besley", size: 18))
+                                    .foregroundColor(Color.black)
+                                    .textCase(.none)
+                                
+                                
+                            }
                 ) {
                     
                     Picker(selection: $selectedMedicationTypeIndex, label: Text("Type")
                             .foregroundColor(.black)
                             .font(Font.custom("Besley", size: 16))
-                    
+                           
                     ) {
                         
                         ForEach(0 ..< TreatmentType.allCases.count) { i in
@@ -88,7 +107,7 @@ struct AddNewMedicationView: View {
                 }
                 
                 Section(header:
-                        Text("Notifications:")
+                            Text("Notifications:")
                             .font(Font.custom("Besley", size: 18))
                             .foregroundColor(Color.black)
                             .textCase(.none)
@@ -125,10 +144,17 @@ struct AddNewMedicationView: View {
                     
                 }
                 
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Text("Save")
+                        .font(Font.custom("Besley", size: 18))
+                        
+                        .textCase(.none)
+                }).disabled(textFieldManager.medNameInput.isEmpty || remarks.isEmpty)
+                
                 
             }
             .background(MyColor.lavender)
-            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            .edgesIgnoringSafeArea(.all)
             .navigationBarHidden(true)
             
         }
@@ -136,6 +162,8 @@ struct AddNewMedicationView: View {
         
         
     }
+    
+
 }
 
 extension View {
@@ -153,6 +181,12 @@ extension View {
     
 }
 
+prefix func ! (value: Binding<Bool>) -> Binding<Bool> {
+    Binding<Bool>(
+        get: { !value.wrappedValue },
+        set: { value.wrappedValue = !$0 }
+    )
+}
 
 
 struct AddNewMedicationView_Previews: PreviewProvider {
