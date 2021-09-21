@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddNewMedicationView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var medicationName: String = ""
     
     @ObservedObject var textFieldManager = TextFieldManager()
@@ -26,22 +28,39 @@ struct AddNewMedicationView: View {
     
     var body: some View {
    
-       
-           
         NavigationView {
             Form {
                 
                 Section(header:
-                            HStack {
-                                Text("Medication Name:")
-                                    .font(Font.custom("Besley", size: 18))
-                                    .foregroundColor(Color.black)
-                                    .textCase(.none)
-                                Image(systemName: "staroflife.fill")
-                                    .foregroundColor(MyColor.maroon)
+                           
+                                
+                            VStack {
+                                
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }, label: {
+                                        Image(systemName: "xmark")
+                                            .foregroundColor(MyColor.maroon)
+                                    }).buttonStyle(FloatingButtonStyle())
+                                }
+                                HStack {
+
+                                        Text("Medication Name:")
+                                            .font(Font.custom("Besley", size: 18))
+                                            .foregroundColor(Color.black)
+                                            .textCase(.none)
+                                        Image(systemName: "staroflife.fill")
+                                            .foregroundColor(MyColor.maroon)
+                                    Spacer()
+                                        
+                                }
                             }
+                            
                         
                 ) {
+                    
                     TextField("", text: $textFieldManager.medNameInput)
                        
                         .placeholder(when: textFieldManager.medNameInput.isEmpty) {
@@ -147,17 +166,25 @@ struct AddNewMedicationView: View {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Text("Save")
                         .font(Font.custom("Besley", size: 18))
-                        
+                        .foregroundColor(textFieldManager.medNameInput.isEmpty || remarks.isEmpty ? .gray : MyColor.maroon)
                         .textCase(.none)
-                }).disabled(textFieldManager.medNameInput.isEmpty || remarks.isEmpty)
+                })
+                .buttonStyle(PlainButtonStyle())
+                .disabled(textFieldManager.medNameInput.isEmpty || remarks.isEmpty)
+               
+               
                 
                 
             }
             .background(MyColor.lavender)
             .edgesIgnoringSafeArea(.all)
             .navigationBarHidden(true)
+            .navigationBarTitle(
+                Text(""), displayMode: .automatic
+            )
             
         }
+        
         .accentColor(MyColor.maroon)
         
         
@@ -165,6 +192,7 @@ struct AddNewMedicationView: View {
     
 
 }
+
 
 extension View {
     func placeholder<Content: View> (
@@ -181,12 +209,7 @@ extension View {
     
 }
 
-prefix func ! (value: Binding<Bool>) -> Binding<Bool> {
-    Binding<Bool>(
-        get: { !value.wrappedValue },
-        set: { value.wrappedValue = !$0 }
-    )
-}
+
 
 
 struct AddNewMedicationView_Previews: PreviewProvider {

@@ -19,14 +19,7 @@ struct AllTreatmentsHeaderView: View {
                 
             
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Text("Add more")
-                    .font(Font.custom("Besley", size: 18))
-                    .fontWeight(.semibold)
-                    .foregroundColor(MyColor.maroon)
-                    .padding(.trailing, 20)
-                    
-            })
+           
         }.padding(.top, 30)
         
     }

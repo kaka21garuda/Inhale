@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeHeaderView: View {
     
+    @State private var addMedicationIsPresented = false
     
     var body: some View {
         HStack {
@@ -20,15 +21,22 @@ struct HomeHeaderView: View {
                     .padding()
             }
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image(systemName: "flame")
+            Button(action: {
+                addMedicationIsPresented.toggle()
+            }, label: {
+                Image(systemName: "plus")
                     .foregroundColor(MyColor.maroon)
-            }).buttonStyle(FireButtonStyle())
+            })
+            .padding()
+            .buttonStyle(FloatingButtonStyle())
+            .fullScreenCover(isPresented: $addMedicationIsPresented, content: {
+                AddNewMedicationView.init()
+            })
         }
     }
 }
 
-struct FireButtonStyle: ButtonStyle {
+struct FloatingButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
@@ -50,7 +58,7 @@ struct FireButtonStyle: ButtonStyle {
                     
                     
                 }
-            ).padding()
+            )
     }
 }
 
